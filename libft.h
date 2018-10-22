@@ -37,6 +37,8 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr(char const *s);
 void	ft_putstr_fd(char const *s, int fd);
 size_t	ft_strlen(const char *s);
+char	*ft_strcat(char *restrict s1, const char *restrict s2);
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n);
 char	*ft_strdup(const char *s1);
 int		ft_strequ(char const *s1, char const *s2);
 void 	ft_strclr(char *s);
