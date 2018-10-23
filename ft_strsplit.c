@@ -37,10 +37,10 @@ char	**ft_strsplit(char const *s, char c)
 		return NULL;
 	while (--n >= 0)
 	{
-		while (i > 0 && s[--i] == c)
-			;
+		while (i > 0 && s[i - 1] == c)
+			i--;
 		j = i;
-		while (j < 0 && s[j - 1] != c)
+		while (j > 0 && s[j - 1] != c)
 			j--;
 		strs[n] = ft_strndup(s + j, i - j);
 		i = j;
