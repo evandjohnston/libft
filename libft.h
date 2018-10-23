@@ -60,5 +60,10 @@ char	*ft_strtrim(char const *s);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize);
+char	*ft_strnew(size_t size);
+void 	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
