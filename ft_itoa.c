@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_numdigits(int n, int base)
+static int	ft_numdigits(int n, int base)
 {
 	int		len;
 
@@ -27,14 +27,14 @@ int		ft_numdigits(int n, int base)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
 
 	len = ft_numdigits(n, 10);
 	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
-			return (NULL);
+		return (NULL);
 	str[len] = '\0';
 	str[0] = (n < 0) ? '-' : '0';
 	while (n != 0)

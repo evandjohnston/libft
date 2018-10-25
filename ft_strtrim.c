@@ -30,12 +30,9 @@ char	*ft_strtrim(char const *s)
 		len--;
 	if ((str = (char *)malloc(sizeof(char) * len + 1)))
 	{
-		i = 0;
-		while (i < len)
-		{
+		i = -1;
+		while (++i < len)
 			str[i] = s[i];
-			i++;
-		}
 		str[i] = '\0';
 		return (str);
 	}

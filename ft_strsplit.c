@@ -12,17 +12,11 @@
 
 #include "libft.h"
 
-//Probably some weird memory fuckery needs to be fixed
-
-char	**ft_strsplit(char const *s, char c)
+static int	ft_countwords(const char *s, char c)
 {
-	char	**strs;
 	int		i;
-	int		j;
 	int		n;
 
-	if (s == NULL)
-		return (NULL);
 	n = 0;
 	i = 0;
 	while (s[i])
@@ -37,8 +31,25 @@ char	**ft_strsplit(char const *s, char c)
 				i++;
 		}
 	}
-	if (!(strs = (char **)malloc(sizeof(char *) * n)))
-		return NULL;
+	return (n);
+}
+
+char		**ft_strsplit(char const *s, char c)
+{
+	char	**strs;
+	int		i;
+	int		j;
+	int		n;
+
+	if (s == NULL || c == 0)
+		return (NULL);
+	n = ft_countwords(s, c);
+	if (!(strs = (char **)malloc(sizeof(char *) * (n + 1))))
+		return (NULL);
+	strs[n] = 0;
+	i = 0;
+	while (s[i])
+		i++;
 	while (--n >= 0)
 	{
 		while (i > 0 && s[i - 1] == c)

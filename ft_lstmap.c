@@ -21,6 +21,6 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	if (!(node = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	node = f(lst);
-		node->next = (lst->next) ? ft_lstmap(lst->next, f) : NULL;
-		return (node);
+	node->next = (lst->next) ? ft_lstmap(lst->next, f) : NULL;
+	return (node);
 }
