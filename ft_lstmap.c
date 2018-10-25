@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evjohnst <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 16:58:15 by evjohnst          #+#    #+#             */
-/*   Updated: 2018/09/10 16:58:16 by evjohnst         ###   ########.fr       */
+/*   Created: 2018/10/24 18:43:03 by evjohnst          #+#    #+#             */
+/*   Updated: 2018/10/24 18:43:05 by evjohnst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int	i;
+	t_list	*node;
 
-	i = 0;
-	while (src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	if (lst == NULL || f == NULL)
+		return (NULL);
+	if (!(node = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	node = f(lst);
+		node->next = (lst->next) ? ft_lstmap(lst->next, f) : NULL;
+		return (node);
 }

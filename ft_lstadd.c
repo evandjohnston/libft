@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evjohnst <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 16:58:15 by evjohnst          #+#    #+#             */
-/*   Updated: 2018/09/10 16:58:16 by evjohnst         ###   ########.fr       */
+/*   Created: 2018/10/24 18:42:52 by evjohnst          #+#    #+#             */
+/*   Updated: 2018/10/24 18:42:53 by evjohnst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	if (new == NULL || alst == NULL)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+//Probably some weird memory fuckery needs to be fixed
+
 char	**ft_strsplit(char const *s, char c)
 {
 	char	**strs;
@@ -19,6 +21,8 @@ char	**ft_strsplit(char const *s, char c)
 	int		j;
 	int		n;
 
+	if (s == NULL)
+		return (NULL);
 	n = 0;
 	i = 0;
 	while (s[i])

@@ -19,7 +19,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	i = 0;
 	if (needle[0] == '\0')
-		return ((char *)(haystack + i));
+		return ((char *)(haystack));
 	while (haystack[i])
 	{
 		j = 0;

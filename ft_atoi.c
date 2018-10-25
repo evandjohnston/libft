@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-//TODO: Handle values over long?
-
 int		ft_atoi(const char *str)
 {
 	long	num;
@@ -30,6 +28,8 @@ int		ft_atoi(const char *str)
 		num += *str - '0';
 		if (ft_isdigit(*(++str)))
 			num *= 10;
+		if (num < 0)
+			return ((sign < 0) ? 0 : -1);
 	}
 	return ((num * (long)sign));
 }

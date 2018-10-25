@@ -18,6 +18,8 @@ char	*ft_strtrim(char const *s)
 	int		i;
 	char	*str;
 
+	if (s == NULL)
+		return (NULL);
 	while (*s == ' ' || *s == '\n' || *s == '\t')
 		s++;
 	len = 0;
