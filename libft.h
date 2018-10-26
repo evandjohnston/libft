@@ -31,7 +31,6 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
-int					ft_isspace(int c);
 char				*ft_itoa(int n);
 void				*ft_memalloc(size_t size);
 void				*ft_memset(void *b, int c, size_t len);
@@ -54,7 +53,6 @@ void				ft_strdel(char **as);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
-char				*ft_strndup(const char *s1, size_t len);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strnstr(const char *haystack, \
 						const char *needle, size_t len);
@@ -88,5 +86,11 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+int					ft_numdigits(long n, int base);
+int					ft_countwords(const char *s, char c);
+int					ft_isspace(int c);
+char				*ft_strndup(const char *s1, size_t len);
+char				*ft_itoabase(long n, int base);
 
 #endif

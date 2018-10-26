@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evjohnst <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/19 15:39:11 by evjohnst          #+#    #+#             */
-/*   Updated: 2018/10/19 15:39:13 by evjohnst         ###   ########.fr       */
+/*   Created: 2018/10/25 16:43:48 by evjohnst          #+#    #+#             */
+/*   Updated: 2018/10/25 16:45:06 by evjohnst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char		*ft_itoa(int n)
+int	ft_countwords(const char *s, char c)
 {
-	char	*str;
-	int		len;
+	int		i;
+	int		n;
 
-	len = ft_numdigits(n, 10);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	str[len] = '\0';
-	str[0] = (n < 0) ? '-' : '0';
-	while (n != 0)
+	n = 0;
+	i = 0;
+	while (s[i])
 	{
-		str[--len] = (n % 10) * ((n < 0) ? -1 : 1) + '0';
-		n /= 10;
+		if (s[i] == c)
+			while (s[i] == c)
+				i++;
+		else if (s[i])
+		{
+			n++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
 	}
-	return (str);
+	return (n);
 }
